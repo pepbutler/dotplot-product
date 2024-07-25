@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS patient;
+DROP TABLE IF EXISTS scan;
+CREATE TABLE patient (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  age INTEGER,
+  height INTEGER,
+  weight INTEGER,
+  history BOOLEAN
+);
+CREATE TABLE scan (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  coordinates TEXT NOT NULL,
+  date TEXT NOT NULL,
+  malignant BOOLEAN,
+  patient_id INTEGER,
+  FOREIGN KEY (patient_id) REFERENCES patient(id)
+);

@@ -14,12 +14,22 @@ def get_db_connection() -> Connection:
 
 @app.route("/")
 def index():
+    # TODO: add explaining text to the html file
     return render_template("index.html")
 
 
 @app.route("/patients")
 def patients():
-    return render_template("patients.html")
+    conn = get_db_connection()
+    patients = conn.execute("SELECT * FROM patient").fetchall()
+    patients.pop(0)
+    conn.close()
+    return render_template("patients.html", patients=patients)
+
+
+@app.route("/scans")
+def scans():
+    return render_template("scans.html")
 
 
 @app.route("/viewer")

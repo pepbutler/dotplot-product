@@ -2,4 +2,12 @@
 
 {% block content %}
     <h1>{% block title %} Patient database {% endblock %}</h1>
+    {% for patient in patients %}
+        <h2>{{ patient['name'] }}</h2>
+        <span class="badge badge-primary">ID {{ patient['id'] }}</span>
+        <span class="badge badge-primary">{{ patient['age'] }} YoA</span>
+        <span class="badge badge-primary">{{ patient['height'] }} cm</span>
+        <span class="badge badge-primary">{{ patient['weight'] }} kg</span>
+        <hr>
+    {% endfor %}
 {% endblock %}
