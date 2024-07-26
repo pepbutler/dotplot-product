@@ -24,7 +24,7 @@ def generate_image(patient_id, coordinate):
     # Draw location of breast lesion onto image as a red rectangle and save
     cv2.rectangle(torso_image, top_left, bottom_right, color, thickness=cv2.FILLED)
     patient_id = str(patient_id)
-    cv2.imwrite(f"patient-images/{patient_id}.png")
+    cv2.imwrite(f"patient-images/{patient_id}.png", torso_image)
 
 
 
