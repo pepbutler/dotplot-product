@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit Patient {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name"
+               placeholder="patient['name']" class="form-control"
+               value="{{ request.form['name'] or patient['name'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="height">Height</label>
+        <input type="text" name="height"
+               placeholder="patient['height']" class="form-control"
+               value="{{ request.form['height'] or patient['height'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="text" name="weight"
+               placeholder="patient['weight']" class="form-control"
+               value="{{ request.form['weight'] or patient['weight'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" name="age"
+               placeholder="patient['age']" class="form-control"
+               value="{{ request.form['age'] or patient['age'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="has_history">Has malignant tumor</label>
+        <input type="text" name="has_history"
+               placeholder="patient['has_hist']" class="form-control"
+               value="{{ request.form['has_hist'] or patient['history'] }}"></input>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<hr>
+
+<form action="{{ url_for('delete_patient', patient_id=patient['id']) }}" method="POST">
+    <input type="submit" value="Delete Patient"
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('Are you sure you want to delete this patient?')">
+</form>
+{% endblock %}

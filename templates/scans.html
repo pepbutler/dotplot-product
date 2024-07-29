@@ -2,4 +2,12 @@
 
 {% block content %}
     <h1>{% block title %} Scans database {% endblock %}</h1>
+    {% for scan in scans %}
+        <h2>{{ scan['name'] }}</h2>
+        <span class="badge badge-primary">ID {{ scan['patient_id'] }}</span>
+        <span class="badge badge-primary">{{ scan['malignant'] }}</span>
+        <span class="badge badge-primary">{{ scan['coordinates'] }}</span>
+        <span class="badge badge-primary">{{ scan['date'] }}</span>
+        <hr>
+    {% endfor %}
 {% endblock %}

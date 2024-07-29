@@ -3,11 +3,16 @@
 {% block content %}
     <h1>{% block title %} Patient database {% endblock %}</h1>
     {% for patient in patients %}
-        <h2>{{ patient['name'] }}</h2>
+        <a href="{{ url_for('patient', patient_id=patient['id'] or 1107) }}">
+          <h2>{{ patient['name'] }}</h2>
+        </a>
         <span class="badge badge-primary">ID {{ patient['id'] }}</span>
         <span class="badge badge-primary">{{ patient['age'] }} YoA</span>
         <span class="badge badge-primary">{{ patient['height'] }} cm</span>
         <span class="badge badge-primary">{{ patient['weight'] }} kg</span>
+        <a href="{{ url_for('edit_patient', patient_id=patient['id'] or 1107) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
         <hr>
     {% endfor %}
 {% endblock %}

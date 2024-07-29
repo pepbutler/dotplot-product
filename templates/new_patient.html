@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Register new patient {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name"
+               placeholder="" class="form-control"
+               value="{{ request.form['name'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="height">Height</label>
+        <input type="text" name="height"
+               placeholder="" class="form-control"
+               value="{{ request.form['height'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="text" name="weight"
+               placeholder="" class="form-control"
+               value="{{ request.form['weight'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" name="age"
+               placeholder="" class="form-control"
+               value="{{ request.form['age'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="has_history">Has malignant tumor</label>
+        <input type="text" name="has_history"
+               placeholder="" class="form-control"
+               value="{{ request.form['has_hist'] }}"></input>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<hr>
+{% endblock %}

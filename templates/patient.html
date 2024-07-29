@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ patient['name'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ patient['id'] }}</span>
+    <p>{{ patient['age'] }}</p>
+{% endblock %}
