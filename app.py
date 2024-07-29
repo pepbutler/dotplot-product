@@ -104,7 +104,6 @@ def delete_patient(patient_id):
 def patients():
     conn = get_db_connection()
     patients = conn.execute("SELECT * FROM patient").fetchall()
-    patients.pop(0)
     conn.close()
     return render_template("patients.html", patients=patients)
 
@@ -118,7 +117,6 @@ def patient(patient_id):
 def scans():
     conn = get_db_connection()
     scans = conn.execute("SELECT * FROM scan").fetchall()
-    scans.pop(0)
     conn.close()
     return render_template("scans.html", scans=scans)
 
